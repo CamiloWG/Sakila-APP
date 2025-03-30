@@ -14,7 +14,7 @@ export default defineConfig({
       }
     },
     host: '0.0.0.0', // O la IP específica que quieras
-    port: 80, // Puedes cambiarlo si es necesario
+    port: 3000, // Puedes cambiarlo si es necesario
     strictPort: true, // Para asegurarte de que usa ese puerto
     allowedHosts: ['http://ec2-50-19-189-124.compute-1.amazonaws.com']
   }
