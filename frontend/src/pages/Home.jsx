@@ -1,0 +1,62 @@
+import UserList from "../components/UserList";
+
+const Home = () => {
+  return (
+    <div className="min-h-screen m-auto bg-[#9790e4] from-blue-50 to-indigo-100 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      {/* Header con logo y descripción */}
+      <div className="text-center max-w-2xl mb-10">
+        <div className="flex justify-center mb-4">
+          <div className="bg-[#555b93] p-3 rounded-lg shadow-md">
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-12 w-12 text-white" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" 
+              />
+            </svg>
+          </div>
+        </div>
+        
+        <h1 className="text-3xl sm:text-4xl font-bold text-[#222d4c] mb-4">
+          Film Rentals
+        </h1>
+        
+        <p className="text-lg text-[#222d4c] leading-relaxed">
+          Seleccione el cliente el cual va a realizar la renta de la pelicula
+        </p>
+      </div>
+      
+      {/* Tarjeta de selección de usuario */}
+      <div className="w-full max-w-[90%] bg-white shadow-xl rounded-lg overflow-hidden">
+        <div className="bg-[#555b93] px-6 py-4">
+          <h2 className="text-xl font-semibold text-white">
+            Lista de clientes
+          </h2>
+        </div>
+        
+        <div className="p-6 bg-[#D2CEE5]">
+          <UserList />
+          
+          <div className="mt-6 text-center">
+          </div>
+        </div>
+      </div>
+      
+      {/* Footer simple */}
+      <div className="mt-12 text-center">
+        <p className="text-sm text-[#222d4c]">
+          © {new Date().getFullYear()} Sakila Movies. Todos los derechos reservados.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
