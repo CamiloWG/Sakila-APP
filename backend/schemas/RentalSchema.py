@@ -28,3 +28,4 @@ class RentalResponseByCustomer(BaseModel):
     return_date: datetime
     customer_id: int
     film_id: int
+    rental_id: int

@@ -22,6 +22,7 @@ def get_rental(rental_id: int, db: Session = Depends(get)):
 def get_rental_by_customer(customer_id: int, db: Session = Depends(get)):
     rentals = (
         db.query(
+            models.Rental.rental_id,
             models.Rental.rental_date,
             models.Rental.return_date,
             models.Rental.customer_id,
@@ -37,6 +38,7 @@ def get_rental_by_customer(customer_id: int, db: Session = Depends(get)):
 
     return [
         {
+            "rental_id": rental.rental_id,
             "rental_date": rental.rental_date,
             "return_date": rental.return_date,
             "customer_id": rental.customer_id,
