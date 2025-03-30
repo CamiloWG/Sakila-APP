@@ -37,9 +37,9 @@ const UserList = () => {
   };
 
   if (isLoading) {
-    return (
-      <div className="space-y-4">
-        {[...Array(8)].map((_, i) => (
+    return (      
+      <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(400px,1fr))]">        
+        {[...Array(10)].map((_, i) => (
           <div key={i} className="h-20 bg-gray-100 rounded-lg animate-pulse"></div>
         ))}
       </div>

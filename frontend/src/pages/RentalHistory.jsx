@@ -127,7 +127,7 @@ const RentalHistory = () => {
   }
 
   return (
-    <div className="bg-[#9790e4] full-w ">
+    <div className="bg-[#9790e4] full-w">
         <div className="max-w-4xl mx-auto py-8 px-4">
         <div className="bg-white shadow rounded-lg overflow-hidden">
           <div className="bg-[#555b93] px-6 py-4">
@@ -165,7 +165,7 @@ const RentalHistory = () => {
 
             {isLoading ? (
               <div className="space-y-4">
-                {[...Array(3)].map((_, i) => (
+                {[...Array(10)].map((_, i) => (
                   <div key={i} className="h-24 bg-gray-100 rounded-lg animate-pulse"></div>
                 ))}
               </div>
