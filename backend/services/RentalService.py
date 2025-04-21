@@ -50,7 +50,7 @@ def create_rental(db: Session, rental: schemas.RentalCreate):
             rental_date=rental.rental_date or datetime.now(),
             inventory_id=available_inventory.inventory_id,
             customer_id=rental.customer_id,
-            return_date=None,
+            return_date=rental.return_date,
             staff_id=1,
             last_update=datetime.now()
         )

@@ -18,7 +18,8 @@ export const useRental = () => {
         rental_date: rentalData.rental_date,
         customer_id: rentalData.customer_id,
         return_date: rentalData.return_date,
-        film_id: rentalData.film_id
+        film_id: rentalData.film_id,
+        store_id: 1
       });
 
       console.log('Renta creada exitosamente:', response);

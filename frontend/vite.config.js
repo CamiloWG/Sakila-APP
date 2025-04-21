@@ -8,15 +8,14 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://ec2-50-19-189-124.compute-1.amazonaws.com:8000',
+        target: 'http://127.0.0.1:8000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
     },
     host: '0.0.0.0', // O la IP específica que quieras
-    port: 3000, // Puedes cambiarlo si es necesario
-    strictPort: true, // Para asegurarte de que usa ese puerto 
-    cors: true,
-    allowedHosts: ['ec2-50-19-189-124.compute-1.amazonaws.com', '.amazonaws.com', 'all']
+    port: 5173, // Puedes cambiarlo si es necesario
+    strictPort: true, // Para asegurarte de que usa ese puerto
+    allowedHosts: ['ec2-44-204-195-66.compute-1.amazonaws.com']
   }
 })

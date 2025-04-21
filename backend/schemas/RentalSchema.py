@@ -28,7 +28,7 @@ class RentalResponse(RentalBase):
 
 class RentalResponseByCustomer(BaseModel):
     rental_date: datetime
-    return_date: datetime
+    return_date: Optional[datetime] = None
     customer_id: int
     film_id: int
     rental_id: int
