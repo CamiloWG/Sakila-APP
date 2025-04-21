@@ -70,6 +70,16 @@ class Staff(Base):
     password = Column(String(50), nullable=True)
     last_update = Column(String(50), nullable=False)
 
+class Store(Base):
+    __tablename__ = "store"
+
+    store_id = Column(Integer, primary_key=True, index=True)
+    manager_staff_id = Column(Integer, ForeignKey("staff.staff_id"))
+    address_id = Column(Integer, ForeignKey("address.address_id"))
+    last_update = Column(DateTime, nullable=False)
+
+    # Relaciones (opcional pero útil)
+    staff = relationship("Staff")
 
 class Inventory(Base):
     __tablename__ = "inventory"

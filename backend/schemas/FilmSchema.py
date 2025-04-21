@@ -14,3 +14,6 @@ class FilmSchema(BaseModel):
     rental_duration: int
     rental_rate: float
     rating: str
+
+    class Config:
+        from_attributes = True

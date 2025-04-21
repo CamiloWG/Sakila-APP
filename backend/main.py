@@ -1,7 +1,7 @@
 from config import database as db
 from sqlalchemy.orm import Session
 from fastapi import FastAPI, Depends, HTTPException
-from routers import FilmRouter, CustomerRouter, RentalRouter
+from routers import FilmRouter, CustomerRouter, RentalRouter, StoreRouter
 from fastapi.openapi.docs import (
     get_redoc_html,
     get_swagger_ui_html,
@@ -23,3 +23,4 @@ async def custom_swagger_ui_html():
 app.include_router(FilmRouter.router)
 app.include_router(CustomerRouter.router)
 app.include_router(RentalRouter.router)
+app.include_router(StoreRouter.router)

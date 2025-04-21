@@ -6,13 +6,16 @@ class RentalBase(BaseModel):
     rental_date: datetime
     inventory_id: Optional[int] = None
     customer_id: int
-    return_date: datetime
+    return_date: Optional[datetime] = None
     staff_id: Optional[int] = None
     last_update: Optional[datetime] = None
 
-class RentalCreate(RentalBase):
+class RentalCreate(BaseModel):
+    rental_date: Optional[datetime] = None
+    customer_id: int
     film_id: int
-    pass 
+    store_id: int
+    return_date: Optional[datetime] = None
 
 class RentalUpdate(BaseModel):
     return_date: Optional[datetime] = None
