@@ -38,8 +38,8 @@ const UserList = () => {
 
   if (isLoading) {
     return (
-      <div className="space-y-4">
-        {[...Array(8)].map((_, i) => (
+      <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(400px,1fr))]">        
+        {[...Array(10)].map((_, i) => (
           <div key={i} className="h-20 bg-gray-100 rounded-lg animate-pulse"></div>
         ))}
       </div>
@@ -70,44 +70,46 @@ const UserList = () => {
 
   return (
     <div className="space-y-4">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">Selecciona tu usuario</h1>
+      <h1 className="text-2xl font-bold text-[#222d4c] mb-6">Selecciona tu cliente</h1>
       
-      {users.map((user) => (
-        <div
-          key={user.customer_id}
-          className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition-shadow"
-        >
-          <div className="p-4">
-            <div className="flex justify-between items-start">
-              <div>
-                <h2 className="text-lg font-semibold text-gray-800">
-                  {user.first_name} {user.last_name}
-                </h2>
-                <p className="text-gray-600 text-sm">{user.email}</p>
+      <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(400px,1fr))]">
+        {users.map((user) => (
+          <div
+            key={user.customer_id}
+            className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200 hover:shadow-md transition-shadow"
+          >
+            <div className="p-4">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h2 className="text-lg font-semibold text-gray-800">
+                    {user.first_name} {user.last_name}
+                  </h2>
+                  <p className="text-gray-600 text-sm">{user.email}</p>
+                </div>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleUserSelect(user);
+                    navigate("/rentals");
+                  }}
+                  className="text-indigo-800 hover:text-[#ebcbff] text-sm font-medium cursor-pointer"
+                >
+                  Ver rentas
+                </button>
               </div>
+            </div>
+  
+            <div className="border-t border-gray-100 px-4 py-3 bg-gray-50">
               <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleUserSelect(user);
-                  navigate("/rentals");
-                }}
-                className="text-indigo-600 hover:text-indigo-800 text-sm font-medium cursor-pointer"
+                onClick={() => handleUserSelect(user)}
+                className="w-full text-center text-indigo-800 hover:text-[#ebcbff] text-sm font-medium cursor-pointer"
               >
-                Ver rentas
+                Seleccionar cliente
               </button>
             </div>
           </div>
-          
-          <div className="border-t border-gray-100 px-4 py-3 bg-gray-50">
-            <button
-              onClick={() => handleUserSelect(user)}
-              className="w-full text-center text-indigo-600 hover:text-indigo-800 text-sm font-medium cursor-pointer"
-            >
-              Rentar Pelicula
-            </button>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

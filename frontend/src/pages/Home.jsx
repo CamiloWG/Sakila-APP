@@ -2,11 +2,11 @@ import UserList from "../components/UserList";
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-start py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen m-auto bg-[#9790e4] from-blue-50 to-indigo-100 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       {/* Header con logo y descripción */}
       <div className="text-center max-w-2xl mb-10">
         <div className="flex justify-center mb-4">
-          <div className="bg-indigo-600 p-3 rounded-lg shadow-md">
+          <div className="bg-[#555b93] p-3 rounded-lg shadow-md">
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               className="h-12 w-12 text-white" 
@@ -24,26 +24,24 @@ const Home = () => {
           </div>
         </div>
         
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
-          Sakila Movie Rentals
+        <h1 className="text-3xl sm:text-4xl font-bold text-[#222d4c] mb-4">
+          Film Rentals
         </h1>
         
-        <p className="text-lg text-gray-600 leading-relaxed">
-          Selecciona tu perfil de usuario para comenzar a explorar nuestro catálogo 
-          de películas. Disfruta de alquileres instantáneos y descubre los últimos 
-          éxitos cinematográficos.
+        <p className="text-lg text-[#222d4c] leading-relaxed">
+          Seleccione el cliente el cual va a realizar la renta de la pelicula
         </p>
       </div>
       
       {/* Tarjeta de selección de usuario */}
-      <div className="w-full max-w-md bg-white shadow-xl rounded-lg overflow-hidden">
-        <div className="bg-indigo-600 px-6 py-4">
+      <div className="w-full max-w-[90%] bg-white shadow-xl rounded-lg overflow-hidden">
+        <div className="bg-[#555b93] px-6 py-4">
           <h2 className="text-xl font-semibold text-white">
-            Selecciona tu usuario
+            Lista de clientes
           </h2>
         </div>
         
-        <div className="p-6">
+        <div className="p-6 bg-[#D2CEE5]">
           <UserList />
           
           <div className="mt-6 text-center">
@@ -53,7 +51,7 @@ const Home = () => {
       
       {/* Footer simple */}
       <div className="mt-12 text-center">
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-[#222d4c]">
           © {new Date().getFullYear()} Sakila Movies. Todos los derechos reservados.
         </p>
       </div>
