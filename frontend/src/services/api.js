@@ -17,6 +17,8 @@ export const getCustomers = async () => {
 
 export const createRental = async (rentalData) => {
   try {
+    console.log('Solicitud enviada:', rentalData);
+    
     const response = await api.post('/rentals/', rentalData);
     return response.data;
   } catch (error) {
@@ -50,7 +52,7 @@ export const getAvailableMovies = async () => {
 
 export const getCustomerRentals = async (customerId) => {
     try {
-      const response = await api.get(`/rentals-by-customer/${customerId}`);
+      const response = await api.get(`rentals/rentals-by-customer/${customerId}`);
       return response.data;
     } catch (error) {
       console.error('Error fetching customer rentals:', error);

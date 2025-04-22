@@ -17,7 +17,7 @@ const UserList = () => {
         setUsers(data);
       } catch (err) {
         console.error("Error loading customers:", err);
-        setError("No se pudieron cargar los clientes. Intente nuevamente.");
+        setError("No se pudieron cargar los usuarios. Intente nuevamente.");
       } finally {
         setIsLoading(false);
       }
@@ -37,7 +37,7 @@ const UserList = () => {
   };
 
   if (isLoading) {
-    return (      
+    return (
       <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(400px,1fr))]">        
         {[...Array(10)].map((_, i) => (
           <div key={i} className="h-20 bg-gray-100 rounded-lg animate-pulse"></div>
@@ -71,8 +71,7 @@ const UserList = () => {
   return (
     <div className="space-y-4">
       <h1 className="text-2xl font-bold text-[#222d4c] mb-6">Selecciona tu cliente</h1>
-  
-      {/* Distribución flexible de columnas con min 400px */}
+      
       <div className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(400px,1fr))]">
         {users.map((user) => (
           <div
@@ -113,8 +112,6 @@ const UserList = () => {
       </div>
     </div>
   );
-  
-  
 };
 
 export default UserList;
