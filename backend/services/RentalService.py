@@ -1,5 +1,6 @@
 
 from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy import func  
 from sqlalchemy.orm import Session
 from config.database import get
 import config.models as models, schemas.RentalSchema as schemas
@@ -8,13 +9,11 @@ import traceback
 
 def create_rental(db: Session, rental: schemas.RentalCreate):
     try:
-        # 🚫 Validación: cliente ya tiene esta película sin devolver
         existing_rental = (
             db.query(models.Rental)
             .join(models.Inventory)
             .filter(
                 models.Rental.customer_id == rental.customer_id,
-                models.Rental.return_date == None,
                 models.Inventory.film_id == rental.film_id
             )
             .first()
@@ -26,10 +25,12 @@ def create_rental(db: Session, rental: schemas.RentalCreate):
                 detail="El cliente ya tiene una renta activa de esta película."
             )
 
-        # 🔍 Subquery para obtener copias disponibles
-        subquery = (
+        # 🔍 Subquery para obtener copias NO disponibles (rentas activas)
+        rentas_activas = (
             db.query(models.Rental.inventory_id)
-            .filter(models.Rental.return_date == None)
+            .filter(
+                (models.Rental.return_date > rental.rental_date)
+            )
             .subquery()
         )
 
@@ -38,7 +39,7 @@ def create_rental(db: Session, rental: schemas.RentalCreate):
             .filter(
                 models.Inventory.film_id == rental.film_id,
                 models.Inventory.store_id == rental.store_id,
-                ~models.Inventory.inventory_id.in_(subquery)
+                ~models.Inventory.inventory_id.in_(rentas_activas)
             )
             .first()
         )
